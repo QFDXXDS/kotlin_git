@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app = "http://schemas.android.com/apk/res-auto"
+>
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <import type="android.text.Html"/>
+
+        <variable name="reposUIModel"
+                  type="com.xxds.kotlin_git.kotlin.model.ui.ReposUIModel"
+
+        />
+
+    </data>
+
+
+
+    <android.support.v7.widget.CardView style="@style/whiteCard">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+
+            <ImageView
+                    android:id="@+id/repos_user_img"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    app:userHeaderUrl="@{reposUIModel.ownerPic}" />
+
+            <TextView
+                    android:id="@+id/repos_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/repos_user_img"
+                    android:singleLine="true"
+                    android:text="@{reposUIModel.repositoryName}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/middleTextSize"
+                    android:textStyle="bold" />
+
+
+            <com.mikepenz.iconics.view.IconicsTextView
+                    android:id="@+id/repos_owner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/repos_name"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@+id/repos_user_img"
+                    android:singleLine="true"
+                    android:text="@{`{GSY-REPOS_ITEM_USER}\n`+reposUIModel.ownerName}"
+                    android:textColor="@color/subTextColor"
+                    android:textSize="@dimen/smallTextSize" />
+
+            <TextView
+                    android:id="@+id/repos_language"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:singleLine="true"
+                    android:text="@{reposUIModel.repositoryType}"
+                    android:textColor="@color/subTextColor"
+                    android:textSize="@dimen/smallTextSize" />
+
+            <TextView
+                    android:id="@+id/repos_des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/repos_user_img"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:maxLines="3"
+                    android:text="@{Html.fromHtml(reposUIModel.repositoryDes)}"
+                    android:textColor="@color/subTextColor"
+                    android:textSize="@dimen/smallTextSize" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/repos_des"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                <com.mikepenz.iconics.view.IconicsTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:maxLines="2"
+                        android:text="@{`{GSY-REPOS_ITEM_STAR}\n`+reposUIModel.repositoryStar}"
+                        android:textColor="@color/subLightTextColor"
+                        android:textSize="@dimen/smallTextSize" />
+
+                <com.mikepenz.iconics.view.IconicsTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="@{reposUIModel.hideWatchIcon ? 2 : 1}"
+                        android:text="@{`{GSY-REPOS_ITEM_FORK}\n`+reposUIModel.repositoryFork}"
+                        android:textColor="@color/subLightTextColor"
+                        android:textSize="@dimen/smallTextSize" />
+
+                <com.mikepenz.iconics.view.IconicsTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@{`{GSY-REPOS_ITEM_WATCH}\n`+reposUIModel.repositoryWatch}"
+                        android:textColor="@color/subLightTextColor"
+                        android:textSize="@dimen/smallTextSize" />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</layout>

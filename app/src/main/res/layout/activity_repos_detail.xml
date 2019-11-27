@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              >
+
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/repos_detail_toolbar"
+            style="@style/toolbarStyle"
+            android:theme="@style/toolbarTheme"
+            app:titleTextColor="@color/white">
+
+    </android.support.v7.widget.Toolbar>
+
+    <com.shuyu.github.kotlin.ui.view.GSYNavigationTabBar
+            android:id="@+id/repos_detail_tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:ntb_badge_size="0sp"
+            app:ntb_badged="false"
+            app:ntb_bg_color="@color/colorPrimary"
+            app:ntb_icon_size_fraction="0"
+            app:ntb_inactive_color="@color/subTextColor"
+            app:ntb_scaled="true"
+            app:ntb_swiped="true"
+            app:ntb_tinted="true"
+            app:ntb_title_mode="all"
+            app:ntb_title_size="@dimen/smallTextSize"
+            app:ntb_titled="true" />
+
+    <android.support.v4.view.ViewPager
+            android:id="@+id/repos_detail_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    <View
+            android:id="@+id/user_header_action_horizontal_line"
+            android:layout_height="1dp"
+            style="@style/horizontalLine" />
+
+    <com.shuyu.github.kotlin.ui.view.GSYControlBar
+            android:id="@+id/repos_detail_control_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"  />
+
+</LinearLayout>

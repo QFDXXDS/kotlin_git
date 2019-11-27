@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app = "http://schemas.android.com/apk/res-auto"
+             xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <data>
+
+    <import type="android.view.View" />
+
+    <variable
+            name="globalModel"
+            type="com.xxds.kotlin_git.kotlin.model.AppGlobalModel" />
+
+    <variable
+            name="userInfoViewModel"
+            type="com.xxds.kotlin_git.kotlin.module.base.BaseUserInfoViewModel" />
+
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_my_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="@{(userInfoViewModel.foucsIcon != null) ? View.VISIBLE : View.GONE}">
+
+
+            <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/user_info_focus_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:shadowColor="@color/colorPrimary"
+                    android:onClick="@{userInfoViewModel::onFocusClick}"
+                    android:textSize="@dimen/bigTextSize"
+                    app:backgroundTint="@color/colorPrimary"
+                    app:elevation="5dp"
+                    app:rippleColor="@color/primary_light" />
+
+            <com.mikepenz.iconics.view.IconicsImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginEnd="10dp"
+                    android:translationZ="12sp"
+                    app:iiv_color="@{@color/white}"
+                    app:iiv_icon="@{userInfoViewModel.foucsIcon}" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</layout>
